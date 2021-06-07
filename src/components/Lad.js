@@ -4,6 +4,7 @@ import { useHistory } from "react-router";
 import {
   getAllCustomerAction,
   getByIdEmployeeAction,
+  getByIdLoanStatusAction,
 } from "../redux/LadReducer";
 import { EmployeeModal } from "./EmployeeModal";
 
@@ -22,6 +23,9 @@ export function Lad() {
 
   const getEmployeeById = (item) => {
     dispatch(getByIdEmployeeAction(item));
+
+    setSuccessOperation(true);
+    setTimeout(() => setSuccessOperation(false), 5000);
   };
 
   return (
@@ -31,6 +35,10 @@ export function Lad() {
         <h3 className="alert alert-secondary">
           Customer Loan Request Detailes
         </h3>
+
+        {successOperation && (
+          <div className="alert alert-success">Opeation Success</div>
+        )}
 
         <table className="table">
           <thead className="thead-dark">
@@ -67,7 +75,6 @@ export function Lad() {
         </table>
       </div>
       <div className="col-3 col-md-2 d-none d-md-block"></div>
-      <EmployeeModal />
     </div>
   );
 }

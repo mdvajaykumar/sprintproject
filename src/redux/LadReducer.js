@@ -9,6 +9,8 @@ const EMPLOYEE_GET_ALL = "EMPLOYEE_GET_ALL";
 const EMPLOYEE_GET_BY_ID = "EMPLOYEE_GET_BY_ID";
 const CUSTOMER_GET_ALL = "CUSTOMER_GET_ALL";
 const REF_EMPLOYEE = "REF_EMPLOYEE";
+const LOANSTATUS_GET_BY_ID = "LOANSTATUS_GET_BY_ID";
+const LOAN_GET_ALL = "LOAN_GET_ALL";
 
 export function getAllEmployeeAction(payload) {
   //return { type: EMPLOYEE_GET_ALL, payload: payload };
@@ -20,6 +22,19 @@ export function getAllEmployeeAction(payload) {
     console.log(employeList);
 
     dispatch({ type: EMPLOYEE_GET_ALL, payload: employeList });
+  };
+}
+
+export function getAllLoanAction(payload) {
+  //return { type: EMPLOYEE_GET_ALL, payload: payload };
+  return async (dispatch) => {
+    const url = "http://localhost:8080//api/lad/allrecords";
+
+    const response = await fetch(url);
+    const employeList = await response.json();
+    console.log(employeList);
+
+    dispatch({ type: LOAN_GET_ALL, payload: employeList });
   };
 }
 
@@ -65,6 +80,10 @@ export function LadReducer(state = initState, action) {
     case EMPLOYEE_GET_BY_ID:
       // TODO
       return state;
+    case LOAN_GET_ALL:
+      // TODO
+      return { ...state, list: action.payload };
+
     case REF_EMPLOYEE:
       return { ...state, refemp: action.payload };
 

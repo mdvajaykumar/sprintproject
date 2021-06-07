@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
-import { getAllEmployeeAction } from "../redux/LadReducer";
+import {
+  getAllEmployeeAction,
+  getByIdLoanStatusAction,
+} from "../redux/LadReducer";
 
 export function Ladlist() {
   const state = useSelector((state) => state);
@@ -21,10 +24,6 @@ export function Ladlist() {
       <div className="col-3 col-md-2 d-none d-md-block"></div>
       <div className="col-12 col-md-8">
         <h3 className="alert alert-secondary">Customer Loan List</h3>
-
-        {successOperation && (
-          <div className="alert alert-success">Opeation Success</div>
-        )}
 
         <table className="table">
           <thead className="thead-dark">
@@ -48,9 +47,9 @@ export function Ladlist() {
                 <td>
                   <input
                     type="button"
-                    //onClick={() => getEmployeeById(item)}
+                    //onClick={() => getLoanStatusById(item)}
                     value="Detail"
-                    className="btn btn-link"
+                    className="btn btn-primary"
                   />
                 </td>
               </tr>

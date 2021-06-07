@@ -11,7 +11,7 @@ export function AppNavBar() {
       <Navbar.Collapse id="basic-navbar-nav">
         <Nav className="ml-auto">
           <Nav.Link as={Link} to="/.ladpage">
-            CustomerLoanRequest
+            CustomerLoanRequestDetailes
           </Nav.Link>
           <Nav.Link as={Link} to="/.ladlistpage">
             LoanStatus

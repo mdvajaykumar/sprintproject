@@ -1,7 +1,10 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
-import { getAllEmployeeAction } from "../redux/LadReducer";
+import {
+  getAllEmployeeAction,
+  getAllLoanStatusAction,
+} from "../redux/LadReducer";
 
 export function Ladlist() {
   const state = useSelector((state) => state);
@@ -13,7 +16,7 @@ export function Ladlist() {
 
   // Used to Initialize :: READ THE DATA FROM API
   useEffect(() => {
-    dispatch(getAllEmployeeAction());
+    dispatch(getAllLoanStatusAction());
   }, []);
 
   return (

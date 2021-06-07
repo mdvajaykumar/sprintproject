@@ -1,13 +1,13 @@
 import { Button, ListGroup, Modal } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { updateRefEmployee } from "../redux/LadReducer";
+import { updateRefCustomer, updateRefEmployee } from "../redux/LadReducer";
 
 export function EmployeeModal() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
 
   const updateRefObj = () => {
-    dispatch(updateRefEmployee({}));
+    dispatch(updateRefCustomer({}));
   };
 
   return (

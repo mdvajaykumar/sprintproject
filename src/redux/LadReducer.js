@@ -5,21 +5,22 @@ const initState = {
   sampleList: ["Delhi", "Kolkata", "Chennai", "Mumbai"],
 };
 
-const EMPLOYEE_GET_ALL = "EMPLOYEE_GET_ALL";
-const EMPLOYEE_GET_BY_ID = "EMPLOYEE_GET_BY_ID";
+const LOANSTATUS_GET_ALL = "LOANSTATUS_GET_ALL";
+const CUSTOMER_GET_BY_ID = "CUSTOMER_GET_BY_ID";
 const CUSTOMER_GET_ALL = "CUSTOMER_GET_ALL";
-const REF_EMPLOYEE = "REF_EMPLOYEE";
+const REF_CUSTOMER = "REF_CUSTOMER";
+const LOAN_STATUS_BY_ID = "LOAN_STATUS_BY_ID";
 
-export function getAllEmployeeAction(payload) {
+export function getAllLoanStatusAction(payload) {
   //return { type: EMPLOYEE_GET_ALL, payload: payload };
   return async (dispatch) => {
     const url = "http://localhost:8080//api/lad/allrecords";
 
     const response = await fetch(url);
-    const employeList = await response.json();
-    console.log(employeList);
+    const loanstatusList = await response.json();
+    console.log(loanstatusList);
 
-    dispatch({ type: EMPLOYEE_GET_ALL, payload: employeList });
+    dispatch({ type: LOANSTATUS_GET_ALL, payload: loanstatusList });
   };
 }
 
@@ -37,35 +38,35 @@ export function getAllCustomerAction(payload) {
   };
 }
 
-export function getByIdEmployeeAction(payload) {
+export function getByIdCustomerAction(payload) {
   return async (dispatch) => {
     const url = `http://localhost:8080/api/lad/${payload.id}`;
     const response = await fetch(url);
     const employeeObj = await response.json();
 
     // this wil update the refemp
-    dispatch(updateRefEmployee(employeeObj));
+    dispatch(updateRefCustomer(employeeObj));
   };
 }
 
-export function updateRefEmployee(payload) {
-  return { type: REF_EMPLOYEE, payload: payload };
+export function updateRefCustomer(payload) {
+  return { type: REF_CUSTOMER, payload: payload };
 }
 
 // REDUCER LOGIC
 export function LadReducer(state = initState, action) {
   switch (action.type) {
-    case EMPLOYEE_GET_ALL:
+    case LOANSTATUS_GET_ALL:
       // TODO
       return { ...state, list: action.payload };
 
     case CUSTOMER_GET_ALL:
       // TODO
       return { ...state, list: action.payload };
-    case EMPLOYEE_GET_BY_ID:
+    case CUSTOMER_GET_BY_ID:
       // TODO
       return state;
-    case REF_EMPLOYEE:
+    case REF_CUSTOMER:
       return { ...state, refemp: action.payload };
 
     default:

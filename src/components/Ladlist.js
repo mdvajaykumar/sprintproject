@@ -42,11 +42,11 @@ export function Ladlist() {
             <tbody>
               {[...state.lad.list].map((item, index) => (
                 <tr key={index}>
-                  <td className="item-style">{item.customerrefid}</td>
-                  <td className="item-style">{item.customerloantype}</td>
+                  <td className="item-style">{item.customerRefId}</td>
+                  <td className="item-style">{item.customerLoanType}</td>
                   <td className="item-style">{item.emi}</td>
-                  <td className="item-style">{item.loanamount}</td>
-                  {item.loanamount > 1 ? (
+                  <td className="item-style">{item.loanAmount}</td>
+                  {item.loanAmount > 1 ? (
                     <td className="loan-approved"> Approved</td>
                   ) : (
                     <td className="loan-rejected"> Rejected</td>

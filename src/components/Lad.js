@@ -2,9 +2,7 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   GetAllCustomerAction,
-  getAllCustomerAction,
   GetByIdCustomerAction,
-  getByIdCustomerAction,
 } from "../redux/LadReducer";
 
 export function Lad() {
@@ -59,9 +57,9 @@ export function Lad() {
               <tr key={index}>
                 <th scope="row">{item.id}</th>
                 <td className="item-style">{item.age}</td>
-                <td className="item-style">{item.annualincome}</td>
-                <td className="item-style">{item.loantype}</td>
-                <td className="item-style">{item.pannumber}</td>
+                <td className="item-style">{item.annualIncome}</td>
+                <td className="item-style">{item.loanType}</td>
+                <td className="item-style">{item.panNumber}</td>
 
                 <td>
                   <input

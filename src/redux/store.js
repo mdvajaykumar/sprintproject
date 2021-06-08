@@ -1,7 +1,7 @@
 import { combineReducers } from "redux";
 import { applyMiddleware } from "redux";
 import { createStore } from "redux";
-import { EmployeeReducer, LadReducer } from "./LadReducer";
+import { LadReducer } from "./LadReducer";
 import thunk from "redux-thunk";
 
 const rootReducer = combineReducers({

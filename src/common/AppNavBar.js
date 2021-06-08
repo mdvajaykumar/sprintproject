@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export function AppNavBar() {
   return (
-    <Navbar bg="dark" expand="lg" variant="dark">
+    <Navbar bg="dark" expand="lg" variant="dark" sticky="top">
       <Navbar.Brand as={Link} to="/">
         Home
       </Navbar.Brand>
@@ -15,6 +15,9 @@ export function AppNavBar() {
           </Nav.Link>
           <Nav.Link as={Link} to="/.ladlistpage">
             LoanStatus
+          </Nav.Link>
+          <Nav.Link as={Link} to="/.customerpage">
+            customer page
           </Nav.Link>
         </Nav>
       </Navbar.Collapse>

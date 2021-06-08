@@ -43,3 +43,34 @@
   align-items: center;
   margin: 10px;
 }
+
+.bg-container {
+  background-color: lightblue;
+  min-height: 100vh;
+}
+.item-style {
+  color: black;
+  font-weight: bold;
+}
+.status-box {
+  width: 300px;
+  height: 50px;
+  background-color: lightgreen;
+  color: blue;
+  text-align: center;
+  padding-top: 10px;
+  border-radius: 5px;
+  margin-bottom: 2px;
+}
+
+.loan-approved {
+  color: green;
+  font-weight: bold;
+}
+.loan-rejected {
+  color: red;
+  font-weight: bold;
+}
+.table-bg-top {
+  background-color: snow;
+}

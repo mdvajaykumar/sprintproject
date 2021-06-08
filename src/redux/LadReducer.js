@@ -9,9 +9,9 @@ const LOANSTATUS_GET_ALL = "LOANSTATUS_GET_ALL";
 const CUSTOMER_GET_BY_ID = "CUSTOMER_GET_BY_ID";
 const CUSTOMER_GET_ALL = "CUSTOMER_GET_ALL";
 const REF_CUSTOMER = "REF_CUSTOMER";
-const LOAN_STATUS_BY_ID = "LOAN_STATUS_BY_ID";
+const LOAN_GET_ALL = "LOAN_GET_ALL";
 
-export function getAllLoanStatusAction(payload) {
+export function GetAllLoanStatusAction(payload) {
   //return { type: EMPLOYEE_GET_ALL, payload: payload };
   return async (dispatch) => {
     const url = "http://localhost:8080//api/lad/allrecords";
@@ -24,7 +24,7 @@ export function getAllLoanStatusAction(payload) {
   };
 }
 
-export function getAllCustomerAction(payload) {
+export function GetAllCustomerAction(payload) {
   //return { type: EMPLOYEE_GET_ALL, payload: payload };
   return async (dispatch) => {
     const url =
@@ -38,7 +38,7 @@ export function getAllCustomerAction(payload) {
   };
 }
 
-export function getByIdCustomerAction(payload) {
+export function GetByIdCustomerAction(payload) {
   return async (dispatch) => {
     const url = `http://localhost:8080/api/lad/${payload.id}`;
     const response = await fetch(url);
@@ -68,6 +68,10 @@ export function LadReducer(state = initState, action) {
       return state;
     case REF_CUSTOMER:
       return { ...state, refemp: action.payload };
+
+    case LOAN_GET_ALL:
+      // TODO
+      return { ...state, list: action.payload };
 
     default:
       return state;

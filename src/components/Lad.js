@@ -1,50 +1,50 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router";
 import {
+  GetAllCustomerAction,
   getAllCustomerAction,
+  GetByIdCustomerAction,
   getByIdCustomerAction,
-  getByIdEmployeeAction,
-  getByIdLoanStatusAction,
 } from "../redux/LadReducer";
-import { EmployeeModal } from "./EmployeeModal";
 
 export function Lad() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
-  const history = useHistory();
   console.log(state);
 
   const [successOperation, setSuccessOperation] = useState(false);
 
   // Used to Initialize :: READ THE DATA FROM API
   useEffect(() => {
-    dispatch(getAllCustomerAction());
+    dispatch(GetAllCustomerAction());
   }, []);
 
-  const getEmployeeById = (item) => {
-    dispatch(getByIdCustomerAction(item));
+  const GetCustomerLoanRequestById = (item) => {
+    dispatch(GetByIdCustomerAction(item));
 
     setSuccessOperation(true);
     setTimeout(() => setSuccessOperation(false), 5000);
   };
 
   return (
-    <div className="row ">
+    <div className="row bg-container">
       <div className="col-3 col-md-2 d-none d-md-block"></div>
       <div className="col-12 col-md-8">
-        <h3 className="alert alert-secondary">
-          Customer Loan Request Detailes
-        </h3>
+        <div className="d-flex m-2">
+          <h1 className="m-2 text-info">Customer Loan Request Detailes</h1>
+          <img
+            src="https://www.pngkey.com/png/detail/334-3346704_request-form-icon.png"
+            alt="image not found"
+            style={{ height: "60px", width: "60px", margin: "2px" }}
+          />
+        </div>
 
         {successOperation && (
-          <div className="alert alert-success">
-            check status in loanlist page
-          </div>
+          <div className="status-box">check status in loanlist page</div>
         )}
 
-        <table className="table">
-          <thead className="thead-dark">
+        <table className="table table-success">
+          <thead className="table-bg-top">
             <tr>
               <th scope="col">#CUSTOMER ID</th>
               <th scope="col">AGE</th>
@@ -58,14 +58,15 @@ export function Lad() {
             {[...state.lad.list].map((item, index) => (
               <tr key={index}>
                 <th scope="row">{item.id}</th>
-                <td>{item.age}</td>
-                <td>{item.annualincome}</td>
-                <td>{item.loantype}</td>
-                <td>{item.pannumber}</td>
+                <td className="item-style">{item.age}</td>
+                <td className="item-style">{item.annualincome}</td>
+                <td className="item-style">{item.loantype}</td>
+                <td className="item-style">{item.pannumber}</td>
+
                 <td>
                   <input
                     type="button"
-                    onClick={() => getEmployeeById(item)}
+                    onClick={() => GetCustomerLoanRequestById(item)}
                     value="verify"
                     className="btn btn-primary m-2"
                   />

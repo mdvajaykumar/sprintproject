@@ -21,7 +21,7 @@ export function Ladlist() {
       <div className="row">
         <div className="col-3 col-md-2 d-none d-md-block"></div>
         <div className="col-12 col-md-8">
-          <h3 className="alert alert-primary text-center m-2">
+          <h3 className="alert alert-warning text-center m-2">
             Customer Loan List
           </h3>
 

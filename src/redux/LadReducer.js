@@ -2,6 +2,8 @@ const initState = {
   list: [],
 
   refemp: {},
+  error: false,
+
   sampleList: ["Delhi", "Kolkata", "Chennai", "Mumbai"],
 };
 
@@ -10,31 +12,42 @@ const CUSTOMER_GET_BY_ID = "CUSTOMER_GET_BY_ID";
 const CUSTOMER_GET_ALL = "CUSTOMER_GET_ALL";
 const REF_CUSTOMER = "REF_CUSTOMER";
 const LOAN_GET_ALL = "LOAN_GET_ALL";
+const SERVER_ERROR = "SERVER_ERROR";
 
 export function GetAllLoanStatusAction(payload) {
   //return { type: EMPLOYEE_GET_ALL, payload: payload };
+
   return async (dispatch) => {
-    const url = "http://localhost:8080//api/lad/allrecords";
+    try {
+      const url = "http://localhost:8080/api/lad/allrecords";
 
-    const response = await fetch(url);
-    const loanstatusList = await response.json();
-    console.log(loanstatusList);
+      const response = await fetch(url);
+      const loanstatusList = await response.json();
+      console.log(loanstatusList);
 
-    dispatch({ type: LOANSTATUS_GET_ALL, payload: loanstatusList });
+      dispatch({ type: LOANSTATUS_GET_ALL, payload: loanstatusList });
+    } catch (error) {
+      console.log(error);
+      dispatch({ type: SERVER_ERROR, payload: true });
+    }
   };
 }
 
 export function GetAllCustomerAction(payload) {
   //return { type: EMPLOYEE_GET_ALL, payload: payload };
   return async (dispatch) => {
-    const url =
-      "http://localhost:8080//api/customerloanrequest/allcustomerrecords";
+    try {
+      const url =
+        "http://localhost:8080/api/customerloanrequest/allcustomerrecords";
 
-    const response = await fetch(url);
-    const employeList = await response.json();
-    console.log(employeList);
-
-    dispatch({ type: CUSTOMER_GET_ALL, payload: employeList });
+      const response = await fetch(url);
+      const employeList = await response.json();
+      console.log(employeList);
+      dispatch({ type: CUSTOMER_GET_ALL, payload: employeList });
+    } catch (error) {
+      console.log(error);
+      dispatch({ type: SERVER_ERROR, payload: true });
+    }
   };
 }
 
@@ -72,6 +85,8 @@ export function LadReducer(state = initState, action) {
     case LOAN_GET_ALL:
       // TODO
       return { ...state, list: action.payload };
+    case SERVER_ERROR:
+      return { ...state, error: action.payload };
 
     default:
       return state;

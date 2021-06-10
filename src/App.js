@@ -1,24 +1,27 @@
 import logo from "./logo.svg";
 import "./App.css";
-import { Lad } from "./components/Lad";
-import { Ladlist } from "./components/Ladlist";
+import {
+  Lad,
+  LadCustomreLoanRequest,
+} from "./components/LadCustomreLoanRequest";
 import { Route, BrowserRouter as Router } from "react-router-dom";
 import { AppNavBar } from "./common/AppNavBar";
 import { CustomerProfile } from "./components/CustomerProfile";
 import { Home } from "./components/Home";
+import { LadLoanList } from "./components/LadLoanList";
 
 function App() {
   return (
     <div>
       <Router>
         <AppNavBar></AppNavBar>
-        <Route path="/.ladpage" exact>
-          <Lad></Lad>
+        <Route path="/ladCustomerRequestPage" exact>
+          <LadCustomreLoanRequest></LadCustomreLoanRequest>
         </Route>
-        <Route path="/.ladlistpage" exact>
-          <Ladlist></Ladlist>
+        <Route path="/ladLoanListpage" exact>
+          <LadLoanList></LadLoanList>
         </Route>
-        <Route path="/.customerpage" exact>
+        <Route path="/customerpage" exact>
           <CustomerProfile></CustomerProfile>
         </Route>
         <Route path="/" exact>

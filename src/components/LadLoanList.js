@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { GetAllLoanStatusAction } from "../redux/LadReducer";
 
-export function Ladlist() {
+export function LadLoanList() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -24,11 +24,12 @@ export function Ladlist() {
           <h3 className="alert alert-warning text-center m-2">
             Customer Loan List
           </h3>
-
           {successOperation && (
             <div className="alert alert-success">Opeation Success</div>
           )}
-
+          {state.lad.error && (
+            <div className="alert alert-danger">Sever is offline</div>
+          )}
           <table className="table table-success">
             <thead className="table-bg-top">
               <tr>

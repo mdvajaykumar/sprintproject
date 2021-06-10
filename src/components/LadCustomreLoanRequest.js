@@ -2,15 +2,17 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   GetAllCustomerAction,
+  GetAllLoanStatusAction,
   GetByIdCustomerAction,
 } from "../redux/LadReducer";
 
-export function Lad() {
+export function LadCustomreLoanRequest() {
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   console.log(state);
 
   const [successOperation, setSuccessOperation] = useState(false);
+  const [check, setCheck] = useState(false);
 
   // Used to Initialize :: READ THE DATA FROM API
   useEffect(() => {
@@ -19,6 +21,7 @@ export function Lad() {
 
   const GetCustomerLoanRequestById = (item) => {
     dispatch(GetByIdCustomerAction(item));
+    setCheck(true);
 
     setSuccessOperation(true);
     setTimeout(() => setSuccessOperation(false), 5000);
@@ -38,7 +41,11 @@ export function Lad() {
         </div>
 
         {successOperation && (
-          <div className="status-box">check status in loanlist page</div>
+          <div className="status-box">check status in LoanStatus page</div>
+        )}
+
+        {state.lad.error && (
+          <div className="alert alert-danger">Sever is offline</div>
         )}
 
         <table className="table table-success">
@@ -60,7 +67,6 @@ export function Lad() {
                 <td className="item-style">{item.annualIncome}</td>
                 <td className="item-style">{item.loanType}</td>
                 <td className="item-style">{item.panNumber}</td>
-
                 <td>
                   <input
                     type="button"

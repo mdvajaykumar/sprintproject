@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Footer } from "../common/Footer";
 import {
   GetAllCustomerAction,
   GetAllLoanStatusAction,
@@ -28,59 +29,60 @@ export function LadCustomreLoanRequest() {
   };
 
   return (
-    <div className="row bg-container">
-      <div className="col-3 col-md-2 d-none d-md-block"></div>
-      <div className="col-12 col-md-8">
-        <div className="d-flex m-2">
-          <h1 className="m-2 text-info">Customer Loan Request Detailes</h1>
-          <img
-            src="https://www.pngkey.com/png/detail/334-3346704_request-form-icon.png"
-            alt="image not found"
-            style={{ height: "60px", width: "60px", margin: "2px" }}
-          />
-        </div>
+    <div>
+      <div className="row bg-container">
+        <div className="col-3 col-md-2 d-none d-md-block"></div>
+        <div className="col-12 col-md-8">
+          <div className="d-flex m-2">
+            <h1 className="m-2 text-info">Customer Loan Request Detailes</h1>
+            <img
+              src="https://www.pngkey.com/png/detail/334-3346704_request-form-icon.png"
+              alt="image not found"
+              style={{ height: "60px", width: "60px", margin: "2px" }}
+            />
+          </div>
 
-        {successOperation && (
-          <div className="status-box">check status in LoanStatus page</div>
-        )}
+          {successOperation && (
+            <div className="status-box">check status in LoanStatus page</div>
+          )}
 
-        {state.lad.error && (
-          <div className="alert alert-danger">Sever is offline</div>
-        )}
+          {state.lad.error && (
+            <div className="alert alert-danger">Sever is offline</div>
+          )}
 
-        <table className="table table-success">
-          <thead className="table-bg-top">
-            <tr>
-              <th scope="col">#CUSTOMER ID</th>
-              <th scope="col">AGE</th>
-              <th scope="col">ANNUAL INCOME</th>
-              <th scope="col">LOAN TYPE</th>
-              <th scope="col">PAN NUMBER</th>
-              <th scope="col">ACTION</th>
-            </tr>
-          </thead>
-          <tbody>
-            {[...state.lad.list].map((item, index) => (
-              <tr key={index}>
-                <th scope="row">{item.id}</th>
-                <td className="item-style">{item.age}</td>
-                <td className="item-style">{item.annualIncome}</td>
-                <td className="item-style">{item.loanType}</td>
-                <td className="item-style">{item.panNumber}</td>
-                <td>
-                  <input
-                    type="button"
-                    onClick={() => GetCustomerLoanRequestById(item)}
-                    value="verify"
-                    className="btn btn-primary m-2"
-                  />
-                </td>
+          <table className="table table-success">
+            <thead className="table-bg-top">
+              <tr>
+                <th scope="col">#CUSTOMER ID</th>
+                <th scope="col">AGE</th>
+                <th scope="col">ANNUAL INCOME</th>
+                <th scope="col">LOAN TYPE</th>
+                <th scope="col">PAN NUMBER</th>
+                <th scope="col">ACTION</th>
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {[...state.lad.list].map((item, index) => (
+                <tr key={index}>
+                  <th scope="row">{item.id}</th>
+                  <td className="item-style">{item.age}</td>
+                  <td className="item-style">{item.annualIncome}</td>
+                  <td className="item-style">{item.loanType}</td>
+                  <td className="item-style">{item.panNumber}</td>
+                  <td>
+                    <input
+                      type="button"
+                      onClick={() => GetCustomerLoanRequestById(item)}
+                      value="verify"
+                      className="btn btn-primary m-2"
+                    />
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div className="col-3 col-md-2 d-none d-md-block"></div>
     </div>
   );
 }

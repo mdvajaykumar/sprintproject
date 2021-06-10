@@ -22,13 +22,18 @@ export function GetAllLoanStatusAction(payload) {
       const url = "http://localhost:8080/api/lad/allrecords";
 
       const response = await fetch(url);
-      const loanstatusList = await response.json();
-      console.log(loanstatusList);
+      const loanStatusList = await response.json();
+      console.log(loanStatusList);
 
-      dispatch({ type: LOANSTATUS_GET_ALL, payload: loanstatusList });
+      localStorage.setItem("loanStatusList", JSON.stringify(loanStatusList));
+      dispatch({ type: LOANSTATUS_GET_ALL, payload: loanStatusList });
     } catch (error) {
       console.log(error);
       dispatch({ type: SERVER_ERROR, payload: true });
+
+      const localLoanStringStatusList = localStorage.getItem("loanStatusList");
+      const localLoanStatusList = JSON.parse(localLoanStringStatusList);
+      dispatch({ type: LOANSTATUS_GET_ALL, payload: localLoanStatusList });
     }
   };
 }
@@ -41,12 +46,18 @@ export function GetAllCustomerAction(payload) {
         "http://localhost:8080/api/customerloanrequest/allcustomerrecords";
 
       const response = await fetch(url);
-      const employeList = await response.json();
-      console.log(employeList);
-      dispatch({ type: CUSTOMER_GET_ALL, payload: employeList });
+      const customerList = await response.json();
+      console.log(customerList);
+
+      localStorage.setItem("customerList", JSON.stringify(customerList));
+      dispatch({ type: CUSTOMER_GET_ALL, payload: customerList });
     } catch (error) {
       console.log(error);
       dispatch({ type: SERVER_ERROR, payload: true });
+
+      const localCustomerStringList = localStorage.getItem("customerList");
+      const customerList = JSON.parse(localCustomerStringList);
+      dispatch({ type: CUSTOMER_GET_ALL, payload: customerList });
     }
   };
 }

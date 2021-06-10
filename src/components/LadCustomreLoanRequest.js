@@ -34,7 +34,7 @@ export function LadCustomreLoanRequest() {
         <div className="col-3 col-md-2 d-none d-md-block"></div>
         <div className="col-12 col-md-8">
           <div className="d-flex m-2">
-            <h1 className="m-2 text-info">Customer Loan Request Detailes</h1>
+            <h1 className="m-2 text-primary">Customer Loan Request Detailes</h1>
             <img
               src="https://www.pngkey.com/png/detail/334-3346704_request-form-icon.png"
               alt="image not found"

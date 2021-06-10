@@ -66,10 +66,12 @@
 .loan-approved {
   color: green;
   font-weight: bold;
+  text-align: center;
 }
 .loan-rejected {
   color: red;
   font-weight: bold;
+  text-align: center;
 }
 .table-bg-top {
   background-color: snow;

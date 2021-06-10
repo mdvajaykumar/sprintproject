@@ -51,9 +51,9 @@ export function LadLoanList() {
                     <td className="item-style">{item.loanAmount}</td>
                     <td className="item-style">
                       {item.loanAmount > 1 ? (
-                        <span>Approved</span>
+                        <span className="loan-approved">Approved</span>
                       ) : (
-                        <span>Rejected</span>
+                        <span className="loan-rejected">Rejected</span>
                       )}
                     </td>
                   </tr>

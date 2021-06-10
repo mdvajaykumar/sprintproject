@@ -23,7 +23,7 @@ export function CustomerProfile() {
       <div className="row bg-secondary">
         <div className="col-3 col-md-2 d-none d-md-block"></div>
         <div className="col-12 col-md-8">
-          <h3 className="text-center">Customer page </h3>
+          <h3 className="text-center text-light">Customer page </h3>
 
           {successOperation && (
             <div className="alert alert-success">Opeation Success</div>
@@ -40,7 +40,7 @@ export function CustomerProfile() {
                       className="profile"
                     />{" "}
                     {item.loanAmount > 1 ? (
-                      <span className="text-success"> Approved</span>
+                      <span className="loan-approved"> Approved</span>
                     ) : (
                       <span className="loan-rejected"> Rejected</span>
                     )}
@@ -50,13 +50,14 @@ export function CustomerProfile() {
                       <span className="loan-approved ">
                         {" "}
                         Thank you for your interst towards our bank.Contact bank
-                        to know more about your loand
+                        to know more about your loan amount and emi and tenure
+                        etc.
                       </span>
                     ) : (
-                      <span className="text-danger">
+                      <span className="loan-rejected">
                         {" "}
                         You do not meet the bank requirement. Thank you for your
-                        interst{" "}
+                        interst.{" "}
                       </span>
                     )}
                   </Card.Text>

@@ -29,7 +29,7 @@ export function CustomerProfile() {
           )}
 
           {[...state.lad.list].map((item, index) => (
-            <div className="m-2 customer-card row" key={index}>
+            <div className="m-2 customer-card row " key={index}>
               <Card
                 border="primary"
                 bg="primary"

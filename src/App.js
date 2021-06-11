@@ -9,6 +9,7 @@ import { AppNavBar } from "./common/AppNavBar";
 import { CustomerProfile } from "./components/CustomerProfile";
 import { Home } from "./components/Home";
 import { LadLoanList } from "./components/LadLoanList";
+import { ContactUs } from "./components/Contactus";
 
 function App() {
   return (
@@ -25,7 +26,7 @@ function App() {
           <CustomerProfile></CustomerProfile>
         </Route>
         <Route path="/" exact>
-          <Home></Home>
+          <ContactUs></ContactUs>
         </Route>
       </Router>
     </div>

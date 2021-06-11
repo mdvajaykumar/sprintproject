@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
-import { Footer } from "../common/Footer";
 import { GetAllLoanStatusAction } from "../redux/LadReducer";
 
 export function CustomerProfile() {
@@ -30,8 +29,13 @@ export function CustomerProfile() {
           )}
 
           {[...state.lad.list].map((item, index) => (
-            <div className="m-2 customer-card" key={index}>
-              <Card border="primary" bg="primary" style={{ width: "18rem" }}>
+            <div className="m-2 customer-card row" key={index}>
+              <Card
+                border="primary"
+                bg="primary"
+                className="col-4"
+                style={{ width: "18rem" }}
+              >
                 <Card.Header> Customer ID : {item.customerRefId}</Card.Header>
                 <Card.Body className="card">
                   <Card.Title>

@@ -95,3 +95,17 @@
   height: 50px;
   margin: 5px;
 }
+.home-bg-container {
+  background-color: cornflowerblue;
+  background-size: cover;
+  height: 100vh;
+}
+.button {
+  justify-content: center;
+  align-items: center;
+}
+.home-image {
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+}

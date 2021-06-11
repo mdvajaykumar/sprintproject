@@ -1,9 +1,7 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Footer } from "../common/Footer";
 import {
   GetAllCustomerAction,
-  GetAllLoanStatusAction,
   GetByIdCustomerAction,
 } from "../redux/LadReducer";
 
